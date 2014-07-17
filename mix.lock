@@ -1,0 +1,1 @@
+%{"qpidpn": {:git, "git@github.com:bakusoku/qpid-erlang.git", "dc9a08f65a939c4935b94743194dfd7214b74124", []}}
