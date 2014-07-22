@@ -10,6 +10,7 @@ defmodule Stacker.Server do
   # callbacks for GenServer.Behaviour
   def init([]) do
     :inets.start()
+    :qpidpn.subscribe('amqp://127.0.0.1/queue://iphone')
     {:ok, []}
   end
 
@@ -19,13 +20,27 @@ defmodule Stacker.Server do
   end
 
   def handle_cast(_msg, state) do
-    IO.puts("Recently viewed: #{inspect(state)}")
     {:noreply, state}
   end
 
-  def handle_info(_info, state) do
-	IO.puts("Recently viewed: in handle info")
-    {:noreply, state}
+  def handle_info(msg, state) do
+	dbmodule msg
+  	{:noreply, state}
+  end
+
+  def dbmodule(msg) do
+	{a, b} = msg
+	data = "#{b[:address]}"
+	data = String.split(data, "//")
+	[route, name] = data 
+	route = String.strip(route, ?:)
+	Database.messagedata(b[:body], route, name)	
+  end
+
+  def msgtoqueue(msg, route, name) do
+
+	IO.puts "message recieved on server from database as  #{msg} from #{route} naming #{name}" 
+	:qpidpn.publish(%{address: 'amqp://127.0.0.1/queue://uphone', body: 'hello frm elixir inside'})
   end
 
   def terminate(_reason, _state) do

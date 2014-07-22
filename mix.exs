@@ -12,7 +12,7 @@ defmodule Minar.Mixfile do
   #
   # Type `mix help compile.app` for more information
   def application do
-    [registered: [:stacker], mod: { Minar, [] } ]
+    [registered: [:stacker], mod: { Minar, [] }, applications: [:erlvolt] ]
   end
 
   # Dependencies can be hex.pm packages:
@@ -25,6 +25,6 @@ defmodule Minar.Mixfile do
   #
   # Type `mix help deps` for more examples and options
   defp deps do
-    [{:qpidpn, git: "git@github.com:bakusoku/qpid-erlang.git", app: false}]
+    [{:erlvolt, git: "https://github.com/Eonblast/Erlvolt.git"}, {:qpidpn, git: "git@github.com:bakusoku/qpid-erlang.git", app: false}]
   end
 end
