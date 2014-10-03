@@ -1,0 +1,2 @@
+%{"erlvolt": {:git, "https://github.com/Eonblast/Erlvolt.git", "aff2d2c22e44ef24464e32580c65e7560a307f32", []},
+  "qpidpn": {:git, "git@github.com:bakusoku/qpid-erlang.git", "dc9a08f65a939c4935b94743194dfd7214b74124", []}}
