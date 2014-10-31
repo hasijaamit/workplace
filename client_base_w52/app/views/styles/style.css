@@ -1,0 +1,1508 @@
+@charset "utf-8";
+
+/***********************************************************************/
+/* 共通
+/***********************************************************************/
+body {
+  font-size: 13px;
+  font-family: 'メイリオ', Meiryo, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'ＭＳ Ｐゴシック', sans-serif;
+  color: #FFF;
+  overflow-x:hidden;
+  /*background:#486497;*/
+  background:#000;
+}
+#wrapper {
+  width: 100%;
+  overflow-x:hidden;
+}
+.clear {
+  display:block;
+  clear:both;
+}
+header {
+  height: 50px;
+  width: 100%;
+  background:#FFF;
+}
+.main {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 10px 0 10px
+}
+.main .logo {
+  background: url(../images/logo.png) no-repeat;
+  background-size: 100%;
+  width: 172px;
+  height: 40px;
+  float: left;
+  margin: 5px 0 0 0;
+  position: fixed;
+  left: 0;
+}
+.main .maxCount {
+  height: 50px;
+  color: #F00;
+  font-weight: bold;
+  font-size:12px;
+  float: right;
+  padding: 16px 0 0 0;
+}
+.main .freeSearch {
+  height: 50px;
+  padding: 12px 15px 0 0;
+  float: right;
+}
+.main .freeSearch select{
+  padding: 5px;
+}
+.main .freeSearch input[type='input']{
+  border: 1px solid;
+  padding: 5px;
+}
+.main .freeSearch input[type='submit']{
+  border: 1px solid;
+  padding: 5px;
+}
+section.content {
+  width:100%;
+  min-height:350px;
+  padding:0px 10px 0 10px;
+}
+
+/***********************************************************************/
+/* メニューボタン
+/***********************************************************************/
+.menuBtn {
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  background: url(../images/menuicon.png) 26px 45px #072b6e no-repeat;
+  behavior: url(PIE.htc);
+  background-size: 32px 26px;
+  bottom: 0px;
+  left: 0px;
+  border-radius: 0 100px 0 0;
+  -webkit-border-radius: 0 100px 0 0;
+  -moz-border-radius: 0 100px 0 0;
+  z-index: 10;
+  color: #FFF;
+  font-weight: bold;
+  cursor: pointer;
+}
+.menuBtnTitle {
+  position: fixed;
+  color: #FFF;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 75px 0 0 15px;
+}
+.menuContainer {
+  position: fixed;
+  bottom: 0px;
+  overflow: hidden;
+  height: 200px;
+  width: 200px;
+  left:-200px;
+  transition: left 1s linear;
+  -moz-transition: left 1s linear;
+  -webkit-transition: left 1s linear;
+  z-index:2;
+}
+.menuContainer.show {
+  left: 0;
+  transition: left 0s linear !important;
+  -moz-transition: left 0s linear !important;
+  -webkit-transition: left 0s linear !important;
+
+  
+}
+.circleCont {
+  width: 400px;
+  height: 200px;
+  position: absolute;
+  overflow: hidden;
+  transform-origin: bottom center;
+  -moz-transform-origin: bottom center;
+  -webkit-transform-origin: bottom center;
+  left: -200px;
+  cursor: pointer;
+  border-radius: 0 200px 0 0;
+  -webkit-border-radius: 0 200px 0 0;
+  -moz-border-radius: 0 200px 0 0;
+  transition: all .3s ease-out;
+  -moz-transition: all .3s ease-out;
+  -webkit-transition: all .3s ease-out;
+  transform: rotate(-90deg) translate3d(0, 0, 0);
+  -moz-transform: rotate(-90deg) translate3d(0, 0, 0);
+  -webkit-transform: rotate(-90deg) translate3d(0, 0, 0);
+  text-align: center;
+  
+}
+.show .circleCont.circ1 {
+  transform: rotate(0deg) translate3d(0, 0, 0);
+  -moz-transform: rotate(0deg) translate3d(0, 0, 0);
+  -webkit-transform: rotate(0deg) translate3d(0, 0, 0);
+  background: #2fb6fb;
+}
+
+.show .circleCont.circ2 {
+  transform: rotate(-30deg) translate3d(0, 0, 0);
+  -webkit-transform: rotate(-30deg) translate3d(0, 0, 0);
+  -moz-transform: rotate(-30deg) translate3d(0, 0, 0);
+  background: #2da5e3; 
+}
+
+.show .circleCont.circ3 {
+  transform: rotate(-60deg) translate3d(0, 0, 0);
+  -webkit-transform: rotate(-60deg) translate3d(0, 0, 0);
+  -moz-transform: rotate(-60deg) translate3d(0, 0, 0);
+  background: #1e8dc6;
+}
+
+.circ1 span.icon{
+  background: url(../images/navicons.png) bottom no-repeat;
+  background-size:40px 78px;
+  transform:rotate(0deg);
+  -webkit-transform:rotate(0deg);
+  -moz-transform:rotate(0deg);
+  display:block;
+  right:30px;
+  width:40px;
+  height:26px;
+  position:absolute;
+  bottom:27px;
+}
+
+.circ1 span.text{
+  background-size:40px 78px;
+  transform:rotate(0deg);
+  -webkit-transform:rotate(0deg);
+  -moz-transform:rotate(0deg);
+  display:block;
+  right:20px;
+  width:60px;
+  height:26px;
+  position:absolute;
+  bottom:0px;
+  font-size:12px;
+  text-align:center;
+
+
+
+}
+.circ2 span.icon{
+  background: url(../images/navicons.png) top no-repeat;
+  background-size:40px 78px;
+  transform:rotate(0deg);
+  -webkit-transform:rotate(0deg);
+  -moz-transform:rotate(0deg);
+  display:block;
+  right:30px;
+  width:40px;
+  height:26px;
+  position:absolute;
+  bottom:27px;
+
+}
+.circ2 span.text{
+  background-size:40px 78px;
+  transform:rotate(0deg);
+  -webkit-transform:rotate(0deg);
+  -moz-transform:rotate(0deg);
+  display:block;
+  right:20px;
+  width:60px;
+  height:26px;
+  position:absolute;
+  bottom:0px;
+  font-size:12px;
+  text-align:center;
+
+}
+.circ3 span.icon{
+  background: url(../images/navicons.png) center no-repeat;
+  background-size:40px 78px;
+  transform:rotate(0deg);
+  -webkit-transform:rotate(0deg);
+  -moz-transform:rotate(0deg);
+  display:block;
+  right:30px;
+  width:40px;
+  height:26px;
+  position:absolute;
+  bottom:27px;
+
+}
+.circ3 span.text{
+  background-size:40px 78px;
+  transform:rotate(0deg);
+  -webkit-transform:rotate(0deg);
+  -moz-transform:rotate(0deg);
+  display:block;
+  right:20px;
+  width:60px;
+  height:26px;
+  position:absolute;
+  bottom:0px;
+  font-size:12px;
+  text-align:center;
+
+}
+.circleCont:hover {
+  background: #0c46b4 !important;
+}
+
+/***********************************************************************/
+/* 車両情報スクロールエリア
+/***********************************************************************/
+#scroller {
+  width:2024px;
+  height:480px;
+  float:left;
+  padding-top:6px;
+}
+
+#scroller ul {
+  list-style:none;
+  display:block;
+  float:left;
+  width:1296px;
+  height:480px;
+  text-align:left;
+}
+
+#scroller li {
+  /*border:1px solid #FFF;*/
+  display:block;
+  position:relative;
+  width:416px;
+  height:313px;
+  /*background:#46A;*/
+  /*background:#222;*/
+  float:left;
+  margin:8px;
+  cursor: pointer;
+}
+
+#scroller h3 {
+  display:block;
+  width:100%;
+  position:absolute;
+  padding:0 0px 0 0px;
+  background:rgba(22,45,56,0.8);
+  background-color:#162D38;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  height:30px;
+  top:0px;
+  left:0px;
+  line-height:30px;
+  color:#a4feff;
+  overflow:hidden;
+}
+
+#scroller_wrapper {
+  position:absolute; z-index:1;
+  top:45px; bottom:0; left:0;
+  width:100%;
+  overflow:auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/***********************************************************************/
+/* 車両情報
+/***********************************************************************/
+.carInfo {
+  position:absolute;
+  bottom:0px;
+  left:0px;
+  width:100%;
+}
+div.carPrice {
+  float:right;
+  height:40px;
+  width:50%;
+  background:rgba(38,114,154,0.8);
+  text-align:center;
+  line-height:40px;
+  font-weight:bold;
+  font-size:125%;
+  overflow:hidden;
+  background-color:#26729A;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  
+}
+div.infoDetails {
+  height:40px;
+  float:left;
+  width:50%;
+  background-color:#162D38;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+}
+div.infoDetails span {
+  float:left;
+  font-size:10px;
+  display:block;
+  text-align:center;
+  height:20px;
+  line-height:20px;
+  overflow:hidden;
+}
+
+
+div.infoDetails span:nth-child(1) {
+  width:49.5%;
+  width:48.5%\9\0;
+  width:48.5%\9;
+  border-right:1px dotted rgb(255,255,255);
+  border-bottom:1px dotted rgb(255,255,255);
+}
+
+div.infoDetails:first-child span {
+    border-bottom:1px dotted rgb(255,255,255);
+    border-right:1px dotted rgb(255,255,255);
+    width:49.5%;
+    width:48.5%\9\0;
+}
+
+
+
+div.infoDetails span:nth-child(2) {
+  width:49.5%;
+  width:48.5%\9\0;
+  border-bottom:1px dotted rgb(255,255,255);
+}
+
+
+div.infoDetails span:nth-child(3) {
+    width: 49.5%;
+    width:48.5%\9\0;
+    border-right: 1px dotted rgb(255, 255, 255);
+}
+
+div.infoDetails span:nth-child(4) {
+    width: 49.5%;
+    width:48.5%\9\0;
+}
+
+/***********************************************************************/
+/* 検索条件（共通）
+/***********************************************************************/
+.conditionModal {
+  position:fixed;
+  background:rgba(0,0,0,0.7);
+  height:100%;
+  width:100%;
+  overflow:hidden;
+  z-index:200;
+  left:150%;
+  transition:left .3s ease-in-out;
+  -webkit-transition:left .3s ease-in-out;
+  -moz-transition:left .3s ease-in-out;
+}
+.conditionModal.show {
+  left:0px !important;
+}
+.conditionModal ul.inner {
+  width:400%;
+  height:100%;
+  position:relative;
+  left:0px;
+  transition:left ease-in-out .5s;
+  -webkit-transition:left ease-in-out .5s;
+  -moz-transition:left ease-in-out .5s;
+}
+.conditionModal ul.inner li.sContainer {
+  width:25%;
+  float:left;
+  height:100%;
+  position:relative;
+}
+.conditionBox {
+  color:#000;
+  background:#dbe7fd;
+}
+.conditionBox h3{
+  line-height: 30px;
+  font-size: 18px;
+}
+.conditionBox .rangeBox{
+  padding: 20px 0px;
+  width: 33%;
+  float: left;
+  height: 69px;
+  text-align: center;
+}
+.conditionBox .otherConditions{
+  padding: 30px 5px 0 5px;
+  width: 35%;
+  float: left;
+  text-align: center;
+}
+.conditionBox .otherConditions .ocBox{
+  background: #edf2f3;
+  padding: 5px;
+  margin-bottom: 3px;
+}
+.conditionBox .otherConditions .ocBox .chkBox_overwrite input{
+  display: none;
+}
+.conditionBox .otherConditions .ocBox label.chkBox{
+  background: #fff;
+  background: -moz-linear-gradient(top,#fff 0,#eee 100%);
+  background: -webkit-gradient(linear,left top,left    	bottom,color-stop(0%,#fff),color-stop(100%,#eee));
+  background: -webkit-linear-gradient(top,#fff 0,#eee 100%);
+  background: -o-linear-gradient(top,#fff 0,#eee 100%);
+  background: -ms-linear-gradient(top,#fff 0,#eee 100%);
+  border: 1px solid #ccc;
+  float: left;
+  display: block;
+  width: 27%;
+  height: 30px;
+  line-height: 30px;
+  font-size: 10px;
+  position: relative;
+  cursor: pointer;
+  -webkit-box-shadow: 1px 1px 1px 0 inset #fff;
+  -moz-box-shadow: 1px 1px 1px 0 inset #fff;
+  box-shadow: 1px 1px 1px 0 inset #fff;
+  -moz-box-shadow: 1px 1px 1px 0 inset #fff;
+  -webkit-box-shadow: 1px 1px 1px 0 inset #fff;
+  color: #999;
+  text-align: center;
+  margin-left:7px;
+  padding-left:2px;
+  padding-right:2px;
+}
+.conditionBox .otherConditions .ocBox .chkBox_overwrite input:checked+label.chkBox{
+  background: #00bfff;
+  background: -moz-linear-gradient(top, #00bfff 0, #006dd9 100%);
+  background: -webkit-gradient(linear,left top,left bottom,color-stop(0%, #00bfff),color-stop(100%, #006dd9));
+  background: -webkit-linear-gradient(top, #00bfff 0, #006dd9 100%);
+  background: -o-linear-gradient(top, #00bfff 0, #006dd9 100%);
+  background: -ms-linear-gradient(top, #00bfff 0, #006dd9 100%);
+  color: #fff;
+  
+}
+.conditionBox .otherConditions .ocBox .chkBox_overwrite input:checked+label{
+  background: #00bfff;
+  background: -moz-linear-gradient(top, #00bfff 0, #006dd9 100%);
+  background: -webkit-gradient(linear,left top,left bottom,color-stop(0%, #00bfff),color-stop(100%, #006dd9));
+  background: -webkit-linear-gradient(top, #00bfff 0, #006dd9 100%);
+  background: -o-linear-gradient(top, #00bfff 0, #006dd9 100%);
+  background: -ms-linear-gradient(top, #00bfff 0, #006dd9 100%);
+  color: #fff;
+}
+.conditionBox .otherConditions .ocBox .chkBox .searchCondItem{
+  font-size: 12px;
+}
+@media only screen and (min-width:200px) and (max-width:640px) {
+  .conditionBox {
+    width:490px;
+    height:420px;
+    border-radius:3px;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin:-200px 0 0 -245px;
+    padding:10px;
+  }
+}
+@media only screen and (min-width:640px) {
+  .conditionBox {
+    width:650px;
+    height:420px;
+    border-radius:3px;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin:-200px 0 0 -325px;
+    padding:10px;
+  }
+}
+
+.conditionBox {
+    width:650px;
+    height:350px;
+    border-radius:3px;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin:-200px 0 0 -325px;
+    padding:10px;
+}
+  
+  
+ 
+  
+  
+.selectBtn {
+  position:absolute;
+  width:117px;
+  height:50px;
+  top:91%;
+  left:41%;
+  background:#FFF;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  margin-top:-25px;
+  cursor:pointer;
+  z-index:201;
+  color: #999;
+  text-align: center;
+  font-size: 20px;
+  line-height: 50px;
+  border:1px solid
+}
+.allSelectBtn {
+  position:absolute;
+  width:80px;
+  height:32px;
+  top:8%;
+  right:2%;
+  background:#ecf7fd;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  margin-top:-25px;
+  cursor:pointer;
+  z-index:201;
+  color: #5D7BB8;
+  text-align: center;
+  font-size: 12px;
+  line-height: 32px;
+  border:1px solid
+}
+.allSelectBtn.active {
+  background-color:#71c0ec;
+}
+.closeBox {
+  width:100%;
+  height:100%;
+  position: absolute;
+}
+.rankStar {
+  font-size:11px;
+  color:#FA0;
+  position:absolute;
+  bottom:0px;
+}
+
+.searchCount {
+  background:url(../images/searchcountIcon.png)  no-repeat;
+  background-size:50px 18px;
+  bottom:2px;
+  left:50%;
+  text-align:center;
+  width:50px;
+  height:18px;
+  line-height:14px;
+  padding:0 0 0 14px;
+  font-size:11px;
+  bottom:5px;
+  left:50%;
+  margin-left:-25px;
+  position:absolute;
+  display: none;
+}
+
+/***********************************************************************/
+/* 検索条件（メーカー）
+/***********************************************************************/
+ul.manufacturer {
+  display: block;
+  list-style: none;
+  float: left;
+  width: 100%;
+  margin-top:0px;
+}
+ul.manufacturer li span {
+  display:none;
+}
+ul.manufacturer li {
+  background-image: url(../images/carLogos.png);
+  background-repeat: no-repeat;
+  background-size: 200%;
+  float: left;
+  width:24.84%;
+  height: 80px !important;
+  cursor: pointer;
+  background-color:#ecf7fd;
+  position:relative;
+  border:1px solid #000;
+  margin-top:-1px;
+  margin-left:-1px;
+}
+ul.manufacturer li.active {
+  background-color: #71c0ec;
+}
+
+ul.manufacturer li.imported{
+  background-image: url(../images/dcfc.png);
+}
+ul.manufacturer li.domestic{
+  background-image: url(../images/dcfc.png);
+}
+
+@media only screen and (min-width:200px) and (max-width:640px) {
+  ul.manufacturer li {height: 88px;}
+  ul.manufacturer li.toyota     {background-position:    0px -220px;}
+  ul.manufacturer li.honda      {background-position: -118px -75px;}
+  ul.manufacturer li.nissan     {background-position:    0px    0px;}
+  ul.manufacturer li.mitsubishi {background-position:    0px -150px;}
+  ul.manufacturer li.mazda      {background-position:    0px -75px;}
+  ul.manufacturer li.subaru     {background-position: -118px -150px;}
+  ul.manufacturer li.daihatsu   {background-position: -118px    0px;}
+  ul.manufacturer li.suzuki     {background-position: -118px -220px;}
+  ul.manufacturer li.domestic   {background-position:    0px    0px;}
+  ul.manufacturer li.imported   {background-position: -118px    0px;}
+}
+
+
+  ul.manufacturer li {height: 100px;}
+  ul.manufacturer li.toyota     {background-position:    0px -300px;}
+  ul.manufacturer li.honda      {background-position: -157px -100px;}
+  ul.manufacturer li.nissan     {background-position:    0px    0px;}
+  ul.manufacturer li.mitsubishi {background-position:    0px -200px;}
+  ul.manufacturer li.mazda      {background-position:    0px -100px;}
+  ul.manufacturer li.subaru     {background-position: -157px -200px;}
+  ul.manufacturer li.daihatsu   {background-position: -157px    0px;}
+  ul.manufacturer li.suzuki     {background-position: -157px -300px;}
+  ul.manufacturer li.domestic   {background-position:    0px    0px;}
+  ul.manufacturer li.imported   {background-position: -157px    0px;}
+
+
+/***********************************************************************/
+/* 検索条件（色）
+/***********************************************************************/
+.colors {
+  width: 100%;
+  float: left;
+}
+.colors li {
+  cursor: pointer;
+  float: left;
+  width:24.84%;
+  height: 45px;
+  background-color:#ecf7fd;
+  position:relative;
+  border:1px solid #000;
+  margin-top:-1px;
+  margin-left:-1px;
+}
+.colors li.active {
+  background:#71c0ec;
+}
+.colors li span {
+  background-image: url(../images/colors.jpg);
+  background-repeat: no-repeat;
+  background-size: 84px 56px;
+  display: block;
+  width: 14px;
+  height: 14px;
+  margin: 8px 10px 10px 10px;
+  border: 1px solid #666;
+  float:left;
+}
+@media only screen and (min-width:200px) and (max-width:640px) {
+  .colors li label {
+    display: block;
+    height: 50px;
+    color: #000;
+    font-size: 8px;
+    line-height:30px;
+    cursor:pointer;
+  }
+}
+@media only screen and (min-width:640px) {
+  .colors li label {
+    display: block;
+    height: 50px;
+    color: #000;
+    font-size: 12px;
+    line-height:30px;
+    cursor:pointer;
+  }
+}
+.colors li.color1 span {
+  background-position: 0px 0px
+}
+.colors li.color2 span {
+  background-position: -14px 0px
+}
+.colors li.color3 span {
+  background-position: -28px 0px
+}
+.colors li.color4 span {
+  background-position: -42px 0px
+}
+.colors li.color5 span {
+  background-position: -56px 0px
+}
+.colors li.color6 span {
+  background-position: -70px 0px
+}
+.colors li.color7 span {
+  background-position: 0px -14px
+}
+.colors li.color8 span {
+  background-position: -14px -14px
+}
+.colors li.color9 span {
+  background-position: -28px -14px
+}
+.colors li.color10 span {
+  background-position: -42px -14px
+}
+.colors li.color11 span {
+  background-position: -56px -14px
+}
+.colors li.color12 span {
+  background-position: -70px -14px
+}
+.colors li.color13 span {
+  background-position: -0px -28px
+}
+.colors li.color14 span {
+  background-position: -14px -28px
+}
+.colors li.color15 span {
+  background-position: -28px -28px
+}
+.colors li.color16 span {
+  background-position: -42px -28px
+}
+.colors li.color17 span {
+  background-position: -56px -28px
+}
+.colors li.color18 span {
+  background-position: -70px -28px
+}
+.colors li.color19 span {
+  background-position: -0px -42px
+}
+.colors li.color20 span {
+  background-position: -14px -42px
+}
+.colors li.color21 span {
+  background-position: -28px -42px
+}
+.colors li.color22 span {
+  background-position: -42px -42px
+}
+/***********************************************************************/
+/* 検索条件（ボディタイプ）
+/***********************************************************************/
+.bodyType {
+  width: 100%;
+  float:left;
+  margin-top:50px;
+}
+.bodyType li {
+  background-image: url(../images/carIcon.png);
+  background-size: 200%;
+  float: left;
+  width:24.84%;
+  height: 90px;
+  position: relative;
+  background-color:#ecf7fd;
+  border:1px solid #000;
+  margin-top:-1px;
+  margin-left:-1px;
+}
+.bodyType li.active {
+  background-color:#71c0ec;
+}
+.bodyType li label {
+  width: 100%;
+  text-align: center;
+  height: 90px;
+  line-height: 100px;
+  display: block;
+  position: absolute;
+  padding-top:30px;
+  cursor:pointer;
+}
+
+
+
+@media only screen and (min-width:200px) and (max-width:640px) {
+  .bodyType li {height: 88px;}
+  .bodyType li label {font-size:9px;padding-top:20px;}
+  .bodyType li.type1 {background-position:   -0px   -0px;}
+  .bodyType li.type2 {background-position: -118px   -0px;}
+  .bodyType li.type3 {background-position:   -0px  -75px;}
+  .bodyType li.type4 {background-position: -118px  -75px;}
+  .bodyType li.type5 {background-position:   -0px -150px;}
+  .bodyType li.type6 {background-position: -118px -150px;}
+  .bodyType li.type7 {background-position:   -0px -220px;}
+  .bodyType li.type8 {background-position: -118px -220px;}
+}
+
+@media only screen and (min-width:640px) {
+  .bodyType li {height: 90px;}
+  .bodyType li label {font-size:12px;padding-top:30px;}
+  .bodyType li.type1 {background-position:   -0px   -0px;}
+  .bodyType li.type2 {background-position: -157px   -0px;}
+  .bodyType li.type3 {background-position:   -0px -100px;}
+  .bodyType li.type4 {background-position: -157px -100px;}
+  .bodyType li.type5 {background-position:   -0px -200px;}
+  .bodyType li.type6 {background-position: -157px -200px;}
+  .bodyType li.type7 {background-position:   -0px -300px;}
+  .bodyType li.type8 {background-position: -157px -300px;}
+}
+
+ .bodyType li {height: 90px;}
+  .bodyType li label {font-size:12px;padding-top:30px;}
+  .bodyType li.type1 {background-position:   -0px   -0px;}
+  .bodyType li.type2 {background-position: -157px   -0px;}
+  .bodyType li.type3 {background-position:   -0px -100px;}
+  .bodyType li.type4 {background-position: -157px -100px;}
+  .bodyType li.type5 {background-position:   -0px -200px;}
+  .bodyType li.type6 {background-position: -157px -200px;}
+  .bodyType li.type7 {background-position:   -0px -300px;}
+  .bodyType li.type8 {background-position: -157px -300px;}
+
+/***********************************************************************/
+/* ソート
+/***********************************************************************/
+.sorting {
+  background:rgb(45,165,227);
+  padding:5px;
+  position:fixed;
+  top:0;
+  z-index:1;
+  width:100%;
+  transition:left .3s ease-out;
+  -webkit-transition:left .3s ease-out;
+  -moz-transition:left .3s ease-out;
+  overflow:hidden;
+  left:-150%;
+  padding-right:60px;
+}
+.sorting .closeBtn {
+    position: relative;
+    top: 0;
+    width: 32px;
+    height: 32px;
+    left: 100%;
+    margin: 8px 0 0 -32px;
+    background: url(../images/close_button_small.png) no-repeat;
+    background-size: 32px, 32px;
+    cursor:pointer;
+}
+
+
+.sorting.show{
+  left:0px;
+}
+.sorting label {
+  float:left;
+  font-size:13px;
+  margin-right:5px;
+  line-height:35px;
+}
+.sorting button {
+  position; relative;
+  border:1px solid #FFF;
+  height:40px;
+  font-size:13px;
+  background: url(../images/sortIcon.png) right bottom #525261 no-repeat;
+  color:#FFF;
+  margin:0 2px 2px 0;
+  float:left;
+  padding:0 20px 0 20px;
+  line-height:14px;
+  
+}
+.sorting button.descend {
+  
+  background: url(../images/sortIcon.png) no-repeat;
+  background-color:#007fff;
+  background-position: right center;
+}
+.sorting button.ascend {
+  
+  background: url(../images/sortIcon.png) no-repeat;
+  background-color:#007fff;
+  background-position: right top;
+}
+
+
+
+
+
+
+/***********************************************************************/
+/* 表示数切替
+/***********************************************************************/
+.changeScreenModal {
+  position:fixed;
+  width:100%;
+  height:100%;
+  bottom:0px;
+  background:rgba(0,0,0,0.7);
+  z-index:100;
+  left:150%;
+  transition:left .3s ease-in;
+  -webkit-transition:left .3s ease-in;
+  -moz-transition:left .3s ease-in;
+}
+.changeScreenModal.show {
+  left:0 !important;
+}
+.changeScreenModal .title {
+  width:100%;
+  height:40px;
+  position:absolute;
+  text-align:center;
+  top:10px;
+}
+
+/***********************************************************************/
+/* 詳細表示
+/***********************************************************************/
+.detailModal {
+    position:fixed;
+    width:100%;
+    height:100%;
+    bottom:0px;
+    background:rgba(0,0,0,0.7);
+    background:rgb(0,0,0)\0;
+    z-index:100;
+    left:150%;
+    transition:left .3s ease-in;
+    -webkit-transition:left .3s ease-in;
+    -moz-transition:left .3s ease-in;
+}
+.detailModal.show {
+    left:0 !important;
+}
+.detailModal .title {
+    width:100%;
+    height:40px;
+    position:absolute;
+    text-align:center;
+    top:10px;
+}
+
+.detailModal .closeBtn {
+    position: absolute;
+    top: 0;
+    width: 64px;
+    height: 64px;
+    left: 100%;
+    margin: -32px 0 0 -32px;
+    background: url(../images/close_button.png) no-repeat;
+    cursor:pointer;
+}
+
+.detailModal .detailBox {
+    width: 620px;
+    height: 420px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    background-color: #21272f;
+    margin: -210px 0 0 -310px;
+}
+
+.detailModal .detailBox img {
+    width: 70%;
+    height: 70%;
+}
+
+.detailModal .carInfoModal {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.detailModal div.carPriceModal {
+    float: right;
+    height: 100px;
+    width: 50%;
+    background: rgba(38, 114, 154, 0.8);
+    text-align: center;
+    line-height: 100px;
+    font-weight: bold;
+    font-size: 125%;
+    overflow: hidden;
+    background-color:#26729A;
+  	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+}
+.detailModal div.infoDetailsModal {
+    height:100px;
+    float:left;
+    width:50%;
+    background:rgba(22,45,56,0.8);
+     background-color:#162D38;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+   
+    
+}
+.detailModal div.infoDetailsModal span {
+    float:left;
+    font-size:10px;
+    display:block;
+    text-align:center;
+    height:20px;
+    line-height:20px;
+    overflow:hidden;
+    width:100%;
+    border-right:1px dotted rgb(255,255,255);
+    border-bottom:1px dotted rgb(255,255,255);
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+    padding-left: 0;
+}
+
+@media only screen and (min-width:600px) {
+    .dispSize {
+        position: absolute;
+        background: #888;
+        width: 184px;
+        height: 136px;
+        margin-left: -92px;
+        margin-top: -68px;
+        background-image: url(../images/dispIcon.gif);
+        background-size: auto;
+    }
+    .dispSize.size1 {
+        top: 50%;
+        left: 18%;
+        background-position: -0px -0px;
+    }
+    .dispSize.size2 {
+        top: 50%;
+        left: 50%;
+        background-position: -184px -0px;
+    }
+    .dispSize.size3 {
+        top: 50%;
+        left: 82%;
+        background-position: -368px -0px;
+    }
+}
+
+.dispSize {
+        position: absolute;
+        background: #888;
+        width: 184px;
+        height: 136px;
+        margin-left: -92px;
+        margin-top: -68px;
+        background-image: url(../images/dispIcon.gif);
+        background-size: auto;
+    }
+    .dispSize.size1 {
+        top: 50%;
+        left: 18%;
+        background-position: -0px -0px;
+    }
+    .dispSize.size2 {
+        top: 50%;
+        left: 50%;
+        background-position: -184px -0px;
+    }
+    .dispSize.size3 {
+        top: 50%;
+        left: 82%;
+        background-position: -368px -0px;
+    }
+
+@media only screen and (min-width:0px) and (max-width:600px) {
+    .dispSize {
+        position: absolute;
+        background: #888;
+        width: 156px;
+        height: 120px;
+        margin-left: -78px;
+        margin-top: -60px;
+        background-image: url(../images/dispIcon.gif);
+        background-size: 300%;
+    }
+    .dispSize.size1 {
+        top: 50%;
+        left: 18%;
+        background-position: -0px -0px;
+    }
+    .dispSize.size2 {
+        top: 50%;
+        left: 50%;
+        background-position: -157px -0px;
+    }
+    .dispSize.size3 {
+        top: 50%;
+        left: 82%;
+        background-position: -312px -0px;
+    }
+}
+
+.dispSize.selected {
+    background-color: #2da5e3;
+}
+
+/***********************************************************************/
+/* 前ページボタン
+/***********************************************************************/
+a.btnPrev {
+  position:fixed;
+  width:50px;
+  height:50px;
+  top:90px;
+  left:0px;
+  background:#FFF;
+  border-radius: 0 3px 3px 0;
+  -webkit-border-radius: 0 3px 3px 0;
+  -moz-border-radius: 0 3px 3px 0;
+  cursor:pointer;
+  z-index:1;
+  text-indent:-9999px;
+  box-shadow:2px 0 0 2px rgba(0,0,0,0.3);
+  -webkit-box-shadow:2px 0 0 2px rgba(0,0,0,0.5);
+}
+a.btnPrev:before {
+  width:0px;
+  height:0px;
+  position:absolute;
+  left:-10px;
+  border-style:solid;
+  border-width:20px;
+  border-color:transparent  #2da5e3 transparent transparent;
+  content:'';
+  top:5px;
+}
+a.btnPrev:after {
+  width:0px;
+  height:0px;
+  position:absolute;
+  left:0px;
+  border-style:solid;
+  border-width:20px;
+  border-color:transparent  #FFF transparent transparent;
+  content:'';
+  top:5px;
+}
+.prevBtn {
+  position:absolute;
+  width:50px;
+  height:50px;
+  top:50%;
+  left:0px;
+  background:#FFF;
+  border-radius: 0 3px 3px 0;
+  -webkit-border-radius: 0 3px 3px 0;
+  -moz-border-radius: 0 3px 3px 0;
+  margin-top:-25px;
+  cursor:pointer;
+  z-index:201;
+}
+.prevBtn:before {
+  width:0px;
+  height:0px;
+  position:absolute;
+  left:-10px;
+  border-style:solid;
+  border-width:20px;
+  border-color:transparent  #2da5e3 transparent transparent;
+  content:'';
+  top:5px;
+}
+.prevBtn:after {
+  width:0px;
+  height:0px;
+  position:absolute;
+  left:0px;
+  border-style:solid;
+  border-width:20px;
+  border-color:transparent  #FFF transparent transparent;
+  content:'';
+  top:5px;
+}
+/***********************************************************************/
+/* 次ページボタン
+/***********************************************************************/
+a.btnNext {
+  position:fixed;
+  width:50px;
+  height:50px;
+  top:90px;
+  right:0px;
+  background:#FFF;
+  border-radius: 3px  0  0 3px;
+  -webkit-border-radius: 3px  0  0 3px;
+  -moz-border-radius: 3px  0  0 3px;
+  cursor:pointer;
+  z-index:1;
+  text-indent:-9999px;
+  box-shadow:-2px 0 0 2px rgba(0,0,0,0.3);
+  -webkit-box-shadow:-2px 0 0 2px rgba(0,0,0,0.5);
+}
+a.btnNext:before {
+  width:0px;
+  height:0px;
+  position:absolute;
+  right:-10px;
+  border-style:solid;
+  border-width:20px;
+  border-color:transparent transparent transparent  #2da5e3;
+  content:'';
+  top:5px;
+}
+a.btnNext:after {
+  width:0px;
+  height:0px;
+  position:absolute;
+  right:0px;
+  border-style:solid;
+  border-width:20px;
+  border-color:transparent transparent transparent  #FFF ;
+  content:'';
+  top:5px;
+}
+.nextBtn {
+  position:absolute;
+  width:50px;
+  height:50px;
+  top:50%;
+  right:0px;
+  background:#FFF;
+  border-radius: 3px  0  0 3px;
+  -webkit-border-radius: 3px  0  0 3px;
+  -moz-border-radius: 3px  0  0 3px;
+  margin-top:-25px;
+  cursor:pointer;
+  z-index:201;
+}
+.nextBtn:before {
+  width:0px;
+  height:0px;
+  position:absolute;
+  right:-10px;
+  border-style:solid;
+  border-width:20px;
+  border-color:transparent transparent transparent  #2da5e3;
+  content:'';
+  top:5px;
+}
+.nextBtn:after {
+  width:0px;
+  height:0px;
+  position:absolute;
+  right:0px;
+  border-style:solid;
+  border-width:20px;
+  border-color:transparent transparent transparent  #FFF ;
+  content:'';
+  top:5px;
+}
+
+.ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; *line-height: 0; }
+.ir br { display: none; }
+.hidden { display: none !important; visibility: hidden; }
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+.invisible { visibility: hidden; }
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { *zoom: 1; }
+
+@media print {
+  * { background: transparent !important; color: black !important; box-shadow:none !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } 
+  a, a:visited { text-decoration: underline; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; } 
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; } 
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+}
+
+/*  new css for IE8 compatibility */
+
+#changeDisp{
+cursor:pointer;
+}
+
+#changeDisp:hover{
+color:#hhgshe;
+}
+
+#sort{
+cursor:pointer;
+}
+
+
+#search{
+cursor:pointer;
+
+}
+
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    /* styles go here */
+    .conditionBox {
+    	width:650px;
+    	height:350px;
+   	 	border-radius:3px;
+    	-webkit-border-radius:3px;
+   		-moz-border-radius:3px;
+    	position:absolute;
+    	left:56%;
+    	top:50%;
+    	margin:-200px 0 0 -325px;
+    	padding:10px;
+	}
+	
+  ul.manufacturer li {height: 88px;}
+  ul.manufacturer li.toyota     {background-position:    0px -275px;}
+  ul.manufacturer li.honda      {background-position: -137px -96px;}
+  ul.manufacturer li.nissan     {background-position:    0px    -8px;}
+  ul.manufacturer li.mitsubishi {background-position:    0px -186px;}
+  ul.manufacturer li.mazda      {background-position:    0px -95px;}
+  ul.manufacturer li.subaru     {background-position: -136px -182px;}
+  ul.manufacturer li.daihatsu   {background-position: -135px    -5px;}
+  ul.manufacturer li.suzuki     {background-position: -138px -271px;}
+  ul.manufacturer li.domestic   {background-position:    0px    0px;}
+  ul.manufacturer li.imported   {background-position: -140px    0px;}
+	
+
+ul.manufacturer {
+    display: block;
+    float: left;
+    list-style: none outside none;
+    margin-top: 0;
+    width: 95%;
+}
+
+
+ul.manufacturer li {
+    background-color: #ecf7fd;
+    background-image: url("../images/carLogos.png");
+    background-repeat: no-repeat;
+    background-size: 200% auto;
+    border: 1px solid #000;
+    cursor: pointer;
+    float: left;
+    height: 80px !important;
+    margin-left: -1px;
+    margin-top: -1px;
+    position: relative;
+    width: 23.50%;
+}
+
+
+.colors {
+    float: left;
+    width: 95%;
+}
+
+
+.colors li {
+    background-color: #ecf7fd;
+    border: 1px solid #000;
+    cursor: pointer;
+    float: left;
+    height: 45px;
+    margin-left: -1px;
+    margin-top: -1px;
+    position: relative;
+    width: 23.50%;
+}
+
+.bodyType {
+    float: left;
+    margin-top: 50px;
+    width: 95%;
+}
+
+.bodyType li {
+    background-color: #ecf7fd;
+    background-image: url("../images/carIcon.png");
+    background-size: 200% auto;
+    border: 1px solid #000;
+    float: left;
+    height: 90px;
+    margin-left: -1px;
+    margin-top: -1px;
+    position: relative;
+    width: 23.5%;
+}
+
+
+ .bodyType li {height: 88px;}
+  .bodyType li label {font-size:9px;padding-top:20px;}
+  .bodyType li.type1 {background-position:   -0px   -0px;}
+  .bodyType li.type2 {background-position: -138px   -0px;}
+  .bodyType li.type3 {background-position:   -0px  -87px;}
+  .bodyType li.type4 {background-position: -142px  -87px;}
+  .bodyType li.type5 {background-position:   -0px -172px;}
+  .bodyType li.type6 {background-position: -140px -172px;}
+  .bodyType li.type7 {background-position:   -0px -260px;}
+  .bodyType li.type8 {background-position: -136px -260px;}
+
+
+.conditionBox .rangeBox {
+    float: left;
+    height: 69px;
+    padding: 20px 0;
+    text-align: center;
+    width: 30.68%;
+}
+
+.detailModal .detailBox {
+    width: 400px;
+    height: 300px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    background-color: #21272f;
+    margin: -140px 0 0 -180px;
+}
+
+
+.detailModal .closeBtn {
+    position: absolute;
+    top: 0;
+    width: 64px;
+    height: 64px;
+    left: 100%;
+    margin: -20px 0 0 -32px;
+    background: url(../images/close_button.png) no-repeat;
+    cursor:pointer;
+}
+
+.allSelectBtn {
+    background: none repeat scroll 0 0 #ecf7fd;
+    border: 1px solid;
+    border-radius: 20px;
+    color: #5d7bb8;
+    cursor: pointer;
+    font-size: 12px;
+    height: 32px;
+    line-height: 32px;
+    margin-top: 285px;
+    position: absolute;
+    right: 85%;
+    text-align: center;
+    top: 8%;
+    width: 80px;
+    z-index: 201;
+}
+
+
+}
